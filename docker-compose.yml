@@ -8,14 +8,17 @@ services:
     volumes:
       - ./app:/app
     ports:
-      - "8000:8000"
+      - "8001:8001"
     depends_on:
       - db
-    command: php -S 0.0.0.0:8000 -t public
+    command: php -S 0.0.0.0:8001 -t public
 
   composer:
     image: composer:2
     container_name: symfony_composer
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     volumes:
       - ./app:/app
     working_dir: /app

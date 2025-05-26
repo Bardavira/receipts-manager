@@ -4,9 +4,11 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\IncomeRepository;
+use ApiPlatform\Metadata\ApiResource;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 
+#[ApiResource]
 #[ORM\Entity(repositoryClass: IncomeRepository::class)]
 class Income
 {
@@ -50,7 +52,7 @@ class Income
     {
         if (!$this->payments->contains($payment)) {
             $this->payments->add($payment);
-            $payment->setIncomeId($this);
+            $payment->setIncome($this);
         }
 
         return $this;
@@ -60,8 +62,8 @@ class Income
     {
         if ($this->payments->removeElement($payment)) {
             // set the owning side to null (unless already changed)
-            if ($payment->getIncomeId() === $this) {
-                $payment->setIncomeId(null);
+            if ($payment->getIncome() === $this) {
+                $payment->setIncome(null);
             }
         }
 
