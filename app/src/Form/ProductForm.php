@@ -16,11 +16,6 @@ class ProductForm extends AbstractType
         $builder
             ->add('description')
             ->add('value')
-            ->add('appointments', EntityType::class, [
-                'class' => Appointment::class,
-                'choice_label' => 'id',
-                'multiple' => true,
-            ])
         ;
     }
 
