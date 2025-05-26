@@ -9,8 +9,8 @@ This is a Symfony-based project running on Docker, using MySQL and API Platform.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/splitpay-api.git
-cd splitpay-api
+git clone https://github.com/Bardavira/receipts-manager.git
+cd receipts-manager
 ```
 
 ### 2. Start the containers
